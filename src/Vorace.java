@@ -6,10 +6,10 @@ public class Vorace extends Erratique{
 	}
 	
 	void bougeDeLa(){
-		if(maison.getAliments.size() > 0){
-			NonNeuneu lePlusRentable = maison.getAliments.get(0);
+		if(maison.getAliments().size() > 0){
+			Nonneuneu lePlusRentable = maison.getAliments().get(0);
 			for(int i = 1; i < maison.getAliments().size(); ++i){
-			lePlusRentable.getLaCase()
+			lePlusRentable.getLaCase();
 			
 			}
 		}

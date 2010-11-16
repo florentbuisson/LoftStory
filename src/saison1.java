@@ -27,14 +27,15 @@ public class Saison1 {
 				loft.add(new Vorace(loft,
 						(int)(Math.random()*29),
 						(int)(Math.random()*29),
-						3));
+						new String("Vorace" + loft.donnerNumeroPourNomNeuneu())));
 			}
 			else {
 				x -= proportionVorace;
 				if (x<proportionErratique) {
 					loft.add(new Erratique(loft,
 							(int)(Math.random()*29),
-							(int)(Math.random()*29)));
+							(int)(Math.random()*29),
+							new String("Erratique" + loft.donnerNumeroPourNomNeuneu())));
 				}
 				else {
 					x -= proportionErratique;
@@ -42,7 +43,7 @@ public class Saison1 {
 						loft.add(new Cannibale(loft,
 						(int)(Math.random()*29),
 						(int)(Math.random()*29),
-						5));
+						new String("Cannibale" + loft.donnerNumeroPourNomNeuneu())));
 					}
 				}
 			}
