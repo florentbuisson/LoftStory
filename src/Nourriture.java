@@ -8,7 +8,6 @@ public class Nourriture {
 	
 	public Nourriture(){
 		this.setValeurEnergetique(0);
-		this.maCase = new Case();
 	}
 	
 	public Nourriture(int valeurEnergetique){

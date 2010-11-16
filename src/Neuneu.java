@@ -1,7 +1,7 @@
 
 enum Corpulence {fin, normal, gros, Obese};
 
-public abstract class Neuneu extends Aliment{
+public abstract class Neuneu extends Nourriture{
 	protected int membres;
 	protected Loft maison;
 	protected Case maCase;

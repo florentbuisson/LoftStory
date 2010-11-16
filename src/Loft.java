@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-import java.io.*;
 
 import java.util.List;
 
-public class Loft {
+public class Loft{
 
 	/**
 	 * @param args
@@ -16,14 +14,14 @@ public class Loft {
 	protected List<Neuneu> nes;
 	protected Integer nombreNeuneuTotal;
 	
+	public Loft(int tailleLoft, ZoneGraphique zone){
+		
+	}
 	public Case getCase(int w, int h){
 		return plateau[w][h];
 	}
 	
 	public void remplissageAleatoire(float ratio){
-		
-	}
-	public void regarderLeLoft(){
 		
 	}
 	public void add(Neuneu neuneu){
