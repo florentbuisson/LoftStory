@@ -7,6 +7,7 @@ public class Saison1 {
 	public static float proportionErratique = .75f;
 	public static float proportionVorace = .25f;
 	public static float proportionCannibale = 0f;
+	public static int dureeSaison = 16; //nombre de tours
 	/**
 	 * @param args
 	 */
@@ -47,7 +48,7 @@ public class Saison1 {
 			}
 		}
 		
-		loft.go();
+		loft.go(dureeSaison);
 	}
 
 }
