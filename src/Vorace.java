@@ -15,7 +15,7 @@ public class Vorace extends Erratique{
 		
 	}
 	Neuneu accouplement(Neuneu partenaire){
-		Vorace bebeNeuneu = new Vorace(this.maison, this.maCase.getWPosition(), this.maCase. getHPosition(), String("Vorace" + this.maison.donnerNumeroPourNomNeuneu()));
+		Vorace bebeNeuneu = new Vorace(this.maison, this.maCase.getWPosition(), this.maCase. getHPosition(), new String("Vorace" + this.maison.donnerNumeroPourNomNeuneu()));
 		return bebeNeuneu;
 	}
 }

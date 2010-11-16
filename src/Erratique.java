@@ -15,7 +15,7 @@ public class Erratique extends Neuneu{
 		
 	}
 	Neuneu accouplement(Neuneu partenaire){
-		Erratique bebeNeuneu = new Erratique(this.maison, this.maCase.getWPosition(), this.maCase. getHPosition(),  String("Erratique" + this.maison.donnerNumeroPourNomNeuneu()));
+		Erratique bebeNeuneu = new Erratique(this.maison, this.maCase.getWPosition(), this.maCase. getHPosition(), new String("Erratique" + this.maison.donnerNumeroPourNomNeuneu()));
 		return bebeNeuneu;
 	}
 }

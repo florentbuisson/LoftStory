@@ -35,7 +35,7 @@ public class Loft {
 			if (neuneu.getEnergie() < plusFaible.getEnergie())
 				plusFaible = neuneu;
 		}
-		System.out.println("A la fin du jour n°"+jour+", "+plusfaible.getNom()+" a été déclaré le Neuneu le plus faible du Loft.");
+		System.out.println("A la fin du jour n°"+jour+", "+plusFaible.getNom()+" a été déclaré le Neuneu le plus faible du Loft.");
 		System.out.println("Pour cette raison, "+plusFaible.getNom()+" est invité à quitter le Loft.");
 		participants.remove(plusFaible);
 	}
