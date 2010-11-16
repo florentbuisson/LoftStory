@@ -4,10 +4,9 @@ import java.util.List;
 public class Case {
 	private int wPosition;
 	private int hPosition;
-	public boolean occupe;
-	public List<Nourriture> occupants;
+	private List<Nourriture> occupants;
 	
-	public Case(int w, int h){
+	public Case( int w, int h){
 		this.wPosition = w;
 		this.hPosition = h;
 	}
@@ -17,8 +16,7 @@ public class Case {
 	public int getHPosition(){
 		return hPosition;
 	}
-	
-	
-	
-	
+	public List<Nourriture> getOccupants(){
+		return occupants;
+	}
 }

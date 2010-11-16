@@ -1,9 +1,9 @@
 import java.lang.String;
 
-public class Nourriture {
+public abstract class Nourriture {
 	
 	private int valeurEnergetique;
-	protected Case maCase;
+	private Case maCase;
 	public String nom;
 	
 	public Nourriture(){
@@ -24,11 +24,11 @@ public class Nourriture {
 		return valeurEnergetique;
 	}
 
-	public Case getMaCase() {
+	public Case getLaCase() {
 		return maCase;
 	}
 
-	public void setMaCase(Case maCase) {
+	protected void setMaCase(Case maCase) {
 		this.maCase = maCase;
 	}
 
@@ -41,7 +41,5 @@ public class Nourriture {
 		}
 		this.valeurEnergetique = valeurEnergetique;
 	}
-	
-	
-
+	abstract boolean estUnNeuneu();
 }

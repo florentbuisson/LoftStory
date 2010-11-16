@@ -15,7 +15,8 @@ public class Cannibale extends Vorace{
 			
 	}
 	Neuneu accouplement(Neuneu partenaire){
-		Cannibale bebeNeuneu = new Cannibale(this.maison, this.maCase.getWPosition(), this.maCase. getHPosition(), new String("Cannibale" + this.maison.donnerNumeroPourNomNeuneu()));
+		Cannibale bebeNeuneu = new Cannibale( maison, getLaCase().getWPosition(), getLaCase().getHPosition(), new String("Cannibale" + this.maison.donnerNumeroPourNomNeuneu()));
+		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance ˆ " + bebeNeuneu.getNom());
 		return bebeNeuneu;
 	}
 }
