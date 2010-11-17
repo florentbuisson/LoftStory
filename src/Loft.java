@@ -149,9 +149,8 @@ public class Loft implements ObjetDessinable {
 		int w = caseNeuneu.getWPosition();
 		int h = caseNeuneu.getHPosition();
 		Case nouvelleCase = getCase(w + x, h + y);
-		plateau[w][h].removeOccupant(neuneuQuiBouge);
-		plateau[w + x][h + y].addOccupant(neuneuQuiBouge);
-
+		caseNeuneu.removeOccupant(neuneuQuiBouge);
+		nouvelleCase.addOccupant(neuneuQuiBouge);
 		return nouvelleCase;
 	}
 

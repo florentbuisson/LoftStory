@@ -13,7 +13,7 @@ public abstract class Neuneu extends Nourriture {
 
 	protected void mange() {
 		boolean premierTrouve = true;
-		Nonneuneu lePlusBon = new Carotte(getLaCase());
+		Nonneuneu lePlusBon = new Carotte( maison, getLaCase());
 		lePlusBon.setValeurEnergetique(0);
 		for (int i = 0; i < getLaCase().getOccupants().size(); ++i) {
 			if (!getLaCase().getOccupants().get(i).estUnNeuneu()) {
@@ -73,7 +73,11 @@ public abstract class Neuneu extends Nourriture {
 		this.energie = nouvelleEnergie;
 		this.setValeurEnergetique(energie);
 	}
-
+	
+	protected void seDeplacer(int dX, int dY){
+		this.setMaCase(maison.jeMeDeplace( this, dX, dY));
+	}
+	
 	public void tesToujoursLa() {
 		if (getEnergie() <= 0 || membres <= 0) {
 			maison.jeSuisMort(this);

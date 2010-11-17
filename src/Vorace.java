@@ -22,8 +22,7 @@ public class Vorace extends Erratique {
 					- lePlusProche.getLaCase().getHPosition();
 			deplacementX = - (int) Math.signum(deplacementX);
 			deplacementY = - (int) Math.signum(deplacementY);
-			setMaCase(maison.getCase(getLaCase().getWPosition() + deplacementX,
-					getLaCase().getHPosition() + deplacementY));
+			seDeplacer( deplacementX, deplacementY);
 		} else {
 			super.bougeDeLa();
 		}

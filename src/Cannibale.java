@@ -29,10 +29,9 @@ public class Cannibale extends Vorace {
 					- lePlusProche.getLaCase().getHPosition();
 			deplacementX = - (int) Math.signum(deplacementX);
 			deplacementY = - (int) Math.signum(deplacementY);
-			setMaCase(maison.getCase(getLaCase().getWPosition() + deplacementX,
-					getLaCase().getHPosition() + deplacementY));
+			seDeplacer( deplacementX, deplacementY);
 		} else if (maison.getParticipants().size() > 1) {
-			Nourriture lePlusProche = new Carotte(getLaCase());
+			Nourriture lePlusProche = new Carotte( maison, getLaCase());
 			lePlusProche.setValeurEnergetique(0);
 			if (!maison.getParticipants().get(0).getNom().equals(getNom())) {
 				lePlusProche = maison.getParticipants().get(0);
@@ -52,19 +51,17 @@ public class Cannibale extends Vorace {
 					- lePlusProche.getLaCase().getHPosition();
 			deplacementX = - (int) Math.signum(deplacementX);
 			deplacementY = - (int) Math.signum(deplacementY);
-			setMaCase(maison.getCase(getLaCase().getWPosition() + deplacementX,
-					getLaCase().getHPosition() + deplacementY));
+			seDeplacer( deplacementX, deplacementY);
 
 		} else {
-			int deplacement = (int) Math.random() * 9;
-			setMaCase(maison.getCase(getLaCase().getWPosition() + (int)(deplacement
-					/ 3) - 1, getLaCase().getHPosition() + deplacement % 3));
+			int deplacement = (int)(Math.random() * 9);
+			seDeplacer((int)(deplacement/3) - 1, (int)(deplacement%3) - 1);
 		}
 	}
 
 	public void mange() {
 		boolean premierTrouve = true;
-		Nourriture lePlusBon = new Carotte(getLaCase());
+		Nourriture lePlusBon = new Carotte( maison, getLaCase());
 		lePlusBon.setValeurEnergetique(0);
 		for (int i = 0; i < getLaCase().getOccupants().size(); ++i) {
 			Nourriture ceTruc = getLaCase().getOccupants().get(i);
