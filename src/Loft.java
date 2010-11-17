@@ -79,6 +79,7 @@ public class Loft implements ObjetDessinable {
 			}
 			aliments.add(nonneuneu);
 			plateau[w][h].addOccupant(nonneuneu);
+			maZone.ajouterObjet(nonneuneu);
 		}
 
 	}
@@ -88,6 +89,7 @@ public class Loft implements ObjetDessinable {
 		int w = neuneu.getLaCase().getWPosition();
 		int h = neuneu.getLaCase().getHPosition();
 		plateau[w][h].addOccupant(neuneu);
+		maZone.ajouterObjet(neuneu);
 	}
 
 	protected void selectionNaturelle() {
@@ -100,7 +102,7 @@ public class Loft implements ObjetDessinable {
 				if (neuneu.getEnergie() < plusFaible.getEnergie())
 					plusFaible = neuneu;
 			}
-			System.out.println("A la fin du jour numero" + jour + ", "
+			System.out.println("A la fin du jour " + jour + ", "
 					+ plusFaible.getNom()
 					+ " a ete declare le Neuneu le plus faible du Loft.");
 			System.out.println("Pour cette raison, " + plusFaible.getNom()
@@ -109,6 +111,7 @@ public class Loft implements ObjetDessinable {
 			int w = plusFaible.getLaCase().getWPosition();
 			int h = plusFaible.getLaCase().getHPosition();
 			plateau[w][h].removeOccupant(plusFaible);
+			maZone.retirerObjet(plusFaible);
 		}
 	}
 
@@ -119,7 +122,7 @@ public class Loft implements ObjetDessinable {
 
 	public void go(int nbJour) {
 		for (int i = 0; i <= nbJour - 1; i++) {
-			
+
 			if (participants.size() >= 1) {
 				jour = jour + 1;
 				System.out.println("Debut du jour numero" + jour + ".");
@@ -141,6 +144,7 @@ public class Loft implements ObjetDessinable {
 		int h = neuneuMort.getLaCase().getHPosition();
 		plateau[w][h].removeOccupant(neuneuMort);
 		morts.add(neuneuMort);
+		maZone.retirerObjet(neuneuMort);
 	}
 
 	public void jeSuisNe(Neuneu jeuneNeuneu) {
@@ -149,23 +153,28 @@ public class Loft implements ObjetDessinable {
 		int h = jeuneNeuneu.getLaCase().getHPosition();
 		plateau[w][h].addOccupant(jeuneNeuneu);
 		nes.add(jeuneNeuneu);
+		maZone.ajouterObjet(jeuneNeuneu);
 	}
 
 	// Methode qui affiche la liste des Neuneu morts et des Neuneu nes durant la
 	// journee et reinitialise les listes associees
 	protected void decesEtNaissances() {
-		//mort
+		// Gestion des Neuneus morts
 		System.out.println("Le(s) neuneu(s) mort(s) durant le jour " + jour
 				+ " sont:");
 		for (Neuneu neuneuMort : morts) {
 			System.out.print(neuneuMort.getNom() + " ");
 		}
-		//nes
+		System.out.println();
+		
+
+		// Gestion des Neuneus nes
 		System.out.println("Le(s) neuneu(s) ne(s) durant le jour " + jour
 				+ " sont:");
 		for (Neuneu neuneuNe : nes) {
 			System.out.print(neuneuNe.getNom() + " ");
 		}
+		System.out.println();
 	}
 
 	public void dessinerObjet(Graphics g) {
