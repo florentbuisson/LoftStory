@@ -1,13 +1,14 @@
-import java.util.List;
+import java.util.LinkedList;
 
 public class Case {
 	private int wPosition;
 	private int hPosition;
-	private List<Nourriture> occupants;
+	private LinkedList<Nourriture> occupants;
 
 	public Case(int w, int h) {
 		this.wPosition = w;
 		this.hPosition = h;
+		occupants = new LinkedList<Nourriture>();
 	}
 
 	public int getWPosition() {
@@ -18,7 +19,7 @@ public class Case {
 		return hPosition;
 	}
 
-	public List<Nourriture> getOccupants() {
+	public LinkedList<Nourriture> getOccupants() {
 		return occupants;
 	}
 
