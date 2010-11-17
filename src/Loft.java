@@ -1,6 +1,7 @@
-import java.util.List;
+import java.awt.Graphics;
+import java.util.LinkedList;
 
-public class Loft{
+public class Loft implements ObjetDessinable{
 
 	/**
 	 * @param args
@@ -8,14 +9,20 @@ public class Loft{
 	protected int taille;
 	protected int jour = 0;
 	protected Case[][] plateau;
-	protected List<Neuneu> participants;
-	protected List<Nonneuneu> aliments;
-	protected List<Neuneu> morts;
-	protected List<Neuneu> nes;
-	protected Integer nombreNeuneuTotal;
+	protected LinkedList<Neuneu> participants;
+	protected LinkedList<Nonneuneu> aliments;
+	protected LinkedList<Neuneu> morts;
+	protected LinkedList<Neuneu> nes;
+	protected Integer nombreNeuneuTotal = 0;
 
 	public Loft(int tailleLoft, ZoneGraphique Zone) {
 		this.taille = tailleLoft;
+		plateau = new Case[taille][taille];
+		participants = new LinkedList<Neuneu>();
+		aliments = new LinkedList<Nonneuneu>();
+		morts = new LinkedList<Neuneu>();
+		nes = new LinkedList<Neuneu>();
+		//aliments = new List<Nonneuneu>;
 		for (int i = 0; i <= taille - 1; i++) {
 			for (int j = 0; j <= taille - 1; j++) {
 				plateau[i][j] = new Case(i,j);
@@ -39,11 +46,11 @@ public class Loft{
 		return plateau[w][h];
 	}
 
-	public List<Neuneu> getParticipants() {
+	public LinkedList<Neuneu> getParticipants() {
 		return this.participants;
 	}
 
-	public List<Nonneuneu> getAliments() {
+	public LinkedList<Nonneuneu> getAliments() {
 		return this.aliments;
 	}
 
@@ -56,16 +63,16 @@ public class Loft{
 			int a = (int) (Math.random() * 2);
 			switch (a) {
 			case 0:
-				nonneuneu = new Carotte();
+				nonneuneu = new Carotte(plateau[w][h]);
 				break;
 			case 1:
-				nonneuneu = new Viande();
+				nonneuneu = new Viande(plateau[w][h]);
 				break;
 			case 2:
-				nonneuneu = new Alcool();
+				nonneuneu = new Alcool(plateau[w][h]);
 				break;
 			default:
-				nonneuneu = new Alcool();
+				nonneuneu = new Alcool(plateau[w][h]);
 				break;
 			}
 			aliments.add(nonneuneu);
@@ -128,5 +135,11 @@ public class Loft{
 		int h = jeuneNeuneu.getLaCase().getHPosition();
 		plateau[w][h].addOccupant(jeuneNeuneu);
 		nes.add(jeuneNeuneu);
+	}
+
+	@Override
+	public void dessinerObjet(Graphics g) {
+		
+		
 	}
 }

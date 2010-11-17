@@ -17,6 +17,7 @@ import javax.swing.JFrame;
  */
 public class ZoneGraphique extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	/**
 	 * la liste d'objets � dessiner
 	 */
@@ -49,7 +50,7 @@ public class ZoneGraphique extends JFrame {
 		getContentPane().add(a);
 		
 		setVisible(true);
-	}
+	}// TODO Auto-generated method stub
 	
 	/**
 	 * ajout d'un objet dans la zone graphique

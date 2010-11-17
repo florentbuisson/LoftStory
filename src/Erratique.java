@@ -1,5 +1,7 @@
+import java.awt.Graphics;
 
-public class Erratique extends Neuneu{
+
+public class Erratique extends Neuneu implements ObjetDessinable{
 
 	public Erratique(){
 	}
@@ -24,5 +26,10 @@ public class Erratique extends Neuneu{
 		Erratique bebeNeuneu = new Erratique(maison, getLaCase().getWPosition(), getLaCase(). getHPosition(), new String("Erratique" + this.maison.donnerNumeroPourNomNeuneu()));
 		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance  " + bebeNeuneu.getNom());
 		return bebeNeuneu;
+	}
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,12 +1,14 @@
 
 public class Viande extends Nonneuneu{
-	public Viande(){
-		this.setValeurEnergetique(7);
-		this.masse = (int) (Math.random()*9) + 1;
-	}
+	
+	public Viande(Case maCase) {
+		super(7, maCase);
+		this.masse = (int) (Math.random() * 9) + 1;
 
-	public Viande(int m) {
-		this.setValeurEnergetique(7);
+	}
+	
+	public Viande(Case maCase, int m) {
+		super(7, maCase);
 		if (m >= 1) {
 			this.masse = m;
 		} else {
