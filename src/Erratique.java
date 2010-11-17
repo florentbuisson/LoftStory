@@ -4,8 +4,6 @@ import java.awt.Graphics;
 
 public class Erratique extends Neuneu implements ObjetDessinable{
 
-	public Erratique(){
-	}
 	public Erratique(Loft loft, int wPosition, int hPosition, String nom){
 		super( loft, wPosition, hPosition, nom);
 	}
@@ -19,7 +17,7 @@ public class Erratique extends Neuneu implements ObjetDessinable{
 		setEnergie(getEnergie() - 1);
 		mange();
 		tesToujoursLa();
-		if(getEnergie() >= 3){
+		if(getEnergie() >= 6){
 			fornique();
 		}
 	}

@@ -47,7 +47,7 @@ public class Lapin extends Neuneu{
 		setEnergie(getEnergie() - 1);
 		mange();
 		tesToujoursLa();
-		if(getEnergie() >= 3){
+		if(getEnergie() >= 6){
 			fornique();
 		}
 	}
