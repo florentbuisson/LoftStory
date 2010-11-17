@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 import java.util.LinkedList;
 
-public class Loft implements ObjetDessinable{
+public class Loft implements ObjetDessinable {
 
 	/**
 	 * @param args
@@ -22,10 +22,10 @@ public class Loft implements ObjetDessinable{
 		aliments = new LinkedList<Nonneuneu>();
 		morts = new LinkedList<Neuneu>();
 		nes = new LinkedList<Neuneu>();
-		//aliments = new List<Nonneuneu>;
+		// aliments = new List<Nonneuneu>;
 		for (int i = 0; i <= taille - 1; i++) {
 			for (int j = 0; j <= taille - 1; j++) {
-				plateau[i][j] = new Case(i,j);
+				plateau[i][j] = new Case(i, j);
 			}
 		}
 	}
@@ -38,7 +38,7 @@ public class Loft implements ObjetDessinable{
 		} else if (w >= taille) {
 			w = taille - 1;
 		}
-		if (w <= 0) {
+		if (h <= 0) {
 			h = 0;
 		} else if (h >= taille) {
 			h = taille - 1;
@@ -78,7 +78,7 @@ public class Loft implements ObjetDessinable{
 			aliments.add(nonneuneu);
 			plateau[w][h].addOccupant(nonneuneu);
 		}
-		
+
 	}
 
 	public void add(Neuneu neuneu) {
@@ -89,20 +89,25 @@ public class Loft implements ObjetDessinable{
 	}
 
 	protected void selectionNaturelle() {
-		Neuneu plusFaible = participants.get(0);
-		for (Neuneu neuneu : participants) {
-			if (neuneu.getEnergie() < plusFaible.getEnergie())
-				plusFaible = neuneu;
+		if (jour <= 3) {
+			System.out
+					.println("Pas d'elimination le jour numero " + jour + ".");
+		} else {
+			Neuneu plusFaible = participants.get(0);
+			for (Neuneu neuneu : participants) {
+				if (neuneu.getEnergie() < plusFaible.getEnergie())
+					plusFaible = neuneu;
+			}
+			System.out.println("A la fin du jour numero" + jour + ", "
+					+ plusFaible.getNom()
+					+ " a ete declare le Neuneu le plus faible du Loft.");
+			System.out.println("Pour cette raison, " + plusFaible.getNom()
+					+ " est invite a quitter le Loft.");
+			participants.remove(plusFaible);
+			int w = plusFaible.getLaCase().getWPosition();
+			int h = plusFaible.getLaCase().getHPosition();
+			plateau[w][h].removeOccupant(plusFaible);
 		}
-		System.out.println("A la fin du jour numero" + jour + ", "
-				+ plusFaible.getNom()
-				+ " a ete declare le Neuneu le plus faible du Loft.");
-		System.out.println("Pour cette raison, " + plusFaible.getNom()
-				+ " est invite a quitter le Loft.");
-		participants.remove(plusFaible);
-		int w = plusFaible.getLaCase().getWPosition();
-		int h = plusFaible.getLaCase().getHPosition();
-		plateau[w][h].removeOccupant(plusFaible);
 	}
 
 	public String donnerNumeroPourNomNeuneu() {
@@ -112,12 +117,14 @@ public class Loft implements ObjetDessinable{
 
 	public void go(int nbJour) {
 		for (int i = 0; i <= nbJour - 1; i++) {
-			jour = jour + 1;
-			System.out.println("Debut du jour numero" + jour + ".");
-			for (Neuneu neuneu : participants) {
-				neuneu.tour();
+			if (participants.size() >= 1) {
+				jour = jour + 1;
+				System.out.println("Debut du jour numero" + jour + ".");
+				for (Neuneu neuneu : participants) {
+					neuneu.tour();
+				}
+				this.selectionNaturelle();
 			}
-			this.selectionNaturelle();
 		}
 	}
 
@@ -138,7 +145,6 @@ public class Loft implements ObjetDessinable{
 	}
 
 	public void dessinerObjet(Graphics g) {
-		
-		
+
 	}
 }
