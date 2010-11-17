@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class Vorace extends Erratique{
 
@@ -28,5 +31,13 @@ public class Vorace extends Erratique{
 		Vorace bebeNeuneu = new Vorace( maison, getLaCase().getWPosition(), getLaCase().getHPosition(), new String("Vorace" + this.maison.donnerNumeroPourNomNeuneu()));
 		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance ˆ " + bebeNeuneu.getNom());
 		return bebeNeuneu;
+	}
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		Color c = g.getColor();
+		g.setColor(Color.RED);
+		g.fillRect(20*getLaCase().getWPosition()+4, 20*getLaCase().getHPosition()+4, 12, 12);
+		g.setColor(c);
 	}
 }
