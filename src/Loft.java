@@ -128,8 +128,8 @@ public class Loft implements ObjetDessinable {
 				System.out.println("Debut du jour numero" + jour + ".");
 				for (Neuneu neuneu : participants) {
 					try {
-						System.out.print("Au tour de " + neuneu.getNom() + " ("
-								+ neuneu.getEnergie() + ") $ ");
+						System.out.print(neuneu.getNom() + " ("
+								+ neuneu.getEnergie() + ") [" + neuneu.getMembre() + "] $ ");
 						neuneu.tour();
 						maZone.repaint();
 						Thread.sleep(500);
