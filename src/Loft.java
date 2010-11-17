@@ -14,8 +14,9 @@ public class Loft implements ObjetDessinable {
 	protected LinkedList<Neuneu> morts;
 	protected LinkedList<Neuneu> nes;
 	protected Integer nombreNeuneuTotal = 0;
+	protected ZoneGraphique maZone;
 
-	public Loft(int tailleLoft, ZoneGraphique Zone) {
+	public Loft(int tailleLoft, ZoneGraphique zone) {
 		this.taille = tailleLoft;
 		plateau = new Case[taille][taille];
 		participants = new LinkedList<Neuneu>();
@@ -28,6 +29,7 @@ public class Loft implements ObjetDessinable {
 				plateau[i][j] = new Case(i, j);
 			}
 		}
+		maZone = zone;
 	}
 
 	public Case getCase(int w, int h) {
@@ -117,14 +119,19 @@ public class Loft implements ObjetDessinable {
 
 	public void go(int nbJour) {
 		for (int i = 0; i <= nbJour - 1; i++) {
+			
 			if (participants.size() >= 1) {
 				jour = jour + 1;
 				System.out.println("Debut du jour numero" + jour + ".");
 				for (Neuneu neuneu : participants) {
 					neuneu.tour();
+					System.out.print("Au tour de " + neuneu.getNom() + " $ ");
 				}
+				System.out.println();
 				this.selectionNaturelle();
 			}
+			this.decesEtNaissances();
+			maZone.repaint();
 		}
 	}
 
@@ -142,6 +149,23 @@ public class Loft implements ObjetDessinable {
 		int h = jeuneNeuneu.getLaCase().getHPosition();
 		plateau[w][h].addOccupant(jeuneNeuneu);
 		nes.add(jeuneNeuneu);
+	}
+
+	// Methode qui affiche la liste des Neuneu morts et des Neuneu nes durant la
+	// journee et reinitialise les listes associees
+	protected void decesEtNaissances() {
+		//mort
+		System.out.println("Le(s) neuneu(s) mort(s) durant le jour " + jour
+				+ " sont:");
+		for (Neuneu neuneuMort : morts) {
+			System.out.print(neuneuMort.getNom() + " ");
+		}
+		//nes
+		System.out.println("Le(s) neuneu(s) ne(s) durant le jour " + jour
+				+ " sont:");
+		for (Neuneu neuneuNe : nes) {
+			System.out.print(neuneuNe.getNom() + " ");
+		}
 	}
 
 	public void dessinerObjet(Graphics g) {
