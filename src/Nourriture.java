@@ -41,5 +41,9 @@ public abstract class Nourriture {
 		}
 		this.valeurEnergetique = valeurEnergetique;
 	}
+	public int distanceAMaCase(Case cetteCase){
+		return Math.max(Math.abs(getLaCase().getWPosition() - cetteCase.getWPosition()), Math.abs(getLaCase().getHPosition() - cetteCase.getHPosition()));
+	}
 	abstract boolean estUnNeuneu();
+	abstract void estConsomme();
 }
