@@ -129,10 +129,10 @@ public class Loft implements ObjetDessinable {
 				for (Neuneu neuneu : participants) {
 					try {
 						System.out.print(neuneu.getNom() + " ("
-								+ neuneu.getEnergie() + ") [" + neuneu.getMembre() + "] $ ");
+								+ neuneu.getEnergie() + ") [" + neuneu.getMembres() + "] $ ");
 						neuneu.tour();
 						maZone.repaint();
-						Thread.sleep(500);
+						Thread.sleep(50);
 					} catch (InterruptedException ie) {
 						// If this thread was intrrupted by nother thread
 					}

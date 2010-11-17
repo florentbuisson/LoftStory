@@ -93,6 +93,7 @@ public abstract class Neuneu extends Nourriture {
 
 	public void estConsomme() {
 		membres = membres - 1;
+		setEnergie(5);
 		tesToujoursLa();
 	}
 }

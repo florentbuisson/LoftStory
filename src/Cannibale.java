@@ -74,8 +74,8 @@ public class Cannibale extends Vorace {
 			}
 		}
 		if (lePlusBon.getValeurEnergetique() > 0) {
-			lePlusBon.estConsomme();
 			setEnergie(getEnergie() + lePlusBon.getValeurEnergetique());
+			lePlusBon.estConsomme();
 		}
 	}
 
