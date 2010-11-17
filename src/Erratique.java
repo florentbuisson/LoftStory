@@ -12,7 +12,7 @@ public class Erratique extends Neuneu implements ObjetDessinable{
 	
 	void bougeDeLa(){
 		int deplacement = (int)(Math.random()*9);
-		this.setMaCase(maison.getCase( getLaCase().getWPosition() + (int) (deplacement/3), getLaCase().getHPosition() + (int) (deplacement%3)));
+		this.setMaCase(maison.getCase( getLaCase().getWPosition() + (int) (deplacement/3) - 1, getLaCase().getHPosition() + (int) (deplacement%3) - 1));
 	}
 	void tour(){
 		bougeDeLa();

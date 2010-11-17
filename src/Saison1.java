@@ -2,12 +2,12 @@
 
 public class Saison1 {
 
-	public static int nombreLofteurs = 2;
+	public static int nombreLofteurs = 10;
 	public static int tailleLoft = 30;
-	public static float proportionErratique = .6f;
-	public static float proportionVorace = .3f;
+	public static float proportionErratique = .3f;
+	public static float proportionVorace = .6f;
 	public static float proportionCannibale = .1f;
-	public static int dureeSaison = 16; //nombre de tours
+	public static int dureeSaison = 100; //nombre de tours
 	
 	/**
 	 * @param args
