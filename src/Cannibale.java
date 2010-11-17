@@ -25,7 +25,7 @@ public class Cannibale extends Vorace{
 			setMaCase(maison.getCase( getLaCase().getWPosition() + deplacementX, getLaCase().getHPosition() + deplacementY));
 		}
 		else if(maison.getParticipants().size() > 1){
-			Nourriture lePlusProche = new Carotte();
+			Nourriture lePlusProche = new Carotte(getLaCase());
 			lePlusProche.setValeurEnergetique(0);
 			if(maison.getParticipants().get(0).getNom() != getNom()){
 				lePlusProche = maison.getParticipants().get(0);
@@ -52,7 +52,7 @@ public class Cannibale extends Vorace{
 	}
 	public void mange(){
 		boolean premierTrouve = true;
-		Nourriture lePlusBon = new Carotte();
+		Nourriture lePlusBon = new Carotte(getLaCase());
 		lePlusBon.setValeurEnergetique(0);
 		for(int i = 0; i < getLaCase().getOccupants().size(); ++i){
 			Nourriture ceTruc = getLaCase().getOccupants().get(i);

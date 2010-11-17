@@ -98,7 +98,7 @@ public class Loft implements ObjetDessinable{
 				+ plusFaible.getNom()
 				+ " a ete declare le Neuneu le plus faible du Loft.");
 		System.out.println("Pour cette raison, " + plusFaible.getNom()
-				+ " est invite à quitter le Loft.");
+				+ " est invite a quitter le Loft.");
 		participants.remove(plusFaible);
 		int w = plusFaible.getLaCase().getWPosition();
 		int h = plusFaible.getLaCase().getHPosition();
@@ -137,7 +137,6 @@ public class Loft implements ObjetDessinable{
 		nes.add(jeuneNeuneu);
 	}
 
-	@Override
 	public void dessinerObjet(Graphics g) {
 		
 		

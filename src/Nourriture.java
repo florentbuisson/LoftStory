@@ -1,6 +1,7 @@
+import java.awt.Graphics;
 import java.lang.String;
 
-public abstract class Nourriture {
+public abstract class Nourriture implements ObjetDessinable{
 	
 	private int valeurEnergetique;
 	private Case maCase;
@@ -46,4 +47,8 @@ public abstract class Nourriture {
 	}
 	abstract boolean estUnNeuneu();
 	abstract void estConsomme();
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 }

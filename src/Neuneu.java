@@ -18,7 +18,7 @@ public abstract class Neuneu extends Nourriture{
 	abstract void bougeDeLa();
 	protected void mange(){
 		boolean premierTrouve = true;
-		Nonneuneu lePlusBon = new Carotte();
+		Nonneuneu lePlusBon = new Carotte(getLaCase());
 		lePlusBon.setValeurEnergetique(0);
 		for(int i = 0; i < getLaCase().getOccupants().size(); ++i){
 			if(!getLaCase().getOccupants().get(i).estUnNeuneu()){

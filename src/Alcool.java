@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 public class Alcool extends Nonneuneu {
 
 	public Alcool(Case maCase) {
@@ -12,5 +14,10 @@ public class Alcool extends Nonneuneu {
 		} else {
 			this.masse = 1;
 		}
+	}
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 }

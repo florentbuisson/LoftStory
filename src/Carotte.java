@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 
 public class Carotte extends Nonneuneu {
 	
@@ -13,5 +15,10 @@ public class Carotte extends Nonneuneu {
 		} else {
 			this.masse = 1;
 		}
+	}
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 }
