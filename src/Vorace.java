@@ -16,14 +16,14 @@ public class Vorace extends Erratique{
 					lePlusProche = maison.getAliments().get(i);
 				}
 			}
-			int deplacementX=getLaCase().getWPosition() - lePlusProche.getLaCase().getWPosition();
-			int deplacementY=getLaCase().getHPosition() - lePlusProche.getLaCase().getHPosition();
+			int deplacementX = getLaCase().getWPosition() - lePlusProche.getLaCase().getWPosition();
+			int deplacementY = getLaCase().getHPosition() - lePlusProche.getLaCase().getHPosition();
 			deplacementX = (int) Math.signum(deplacementX);
 			deplacementY = (int) Math.signum(deplacementY);
-			setMaCase(maison.getCase( getLaCase().getWPosition() + deplacementX, getLaCase().getHPosition() + deplacementY));
+			setMaCase(maison.getCase(getLaCase().getWPosition() + deplacementX, getLaCase().getHPosition() + deplacementY));
 		}
 		else{
-			int deplacement = (int)Math.random()*9;
+			int deplacement = (int)(Math.random()*9);
 			setMaCase(maison.getCase( getLaCase().getWPosition() + deplacement/3, getLaCase().getHPosition() + deplacement%3));
 		}
 	}
@@ -36,7 +36,7 @@ public class Vorace extends Erratique{
 	public void dessinerObjet(Graphics g) {
 		// TODO Auto-generated method stub
 		Color c = g.getColor();
-		g.setColor(Color.RED);
+		g.setColor(Color.YELLOW);
 		g.fillRect(20*getLaCase().getWPosition()+4, 20*getLaCase().getHPosition()+4, 12, 12);
 		g.setColor(c);
 	}
