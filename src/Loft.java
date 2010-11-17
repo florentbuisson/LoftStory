@@ -60,9 +60,9 @@ public class Loft implements ObjetDessinable {
 		int nombreNonneuneu = (int) (taille * taille * ratio);
 		Nonneuneu nonneuneu;
 		for (int i = 0; i <= nombreNonneuneu - 1; i++) {
-			int w = (int) (Math.random() * (taille - 1));
-			int h = (int) (Math.random() * (taille - 1));
-			int a = (int) (Math.random() * 2);
+			int w = (int) (Math.random() * taille);
+			int h = (int) (Math.random() * taille);
+			int a = (int) (Math.random() * 3);
 			switch (a) {
 			case 0:
 				nonneuneu = new Carotte(plateau[w][h]);
@@ -127,12 +127,12 @@ public class Loft implements ObjetDessinable {
 					jour = jour + 1;
 					System.out.println("Debut du jour numero" + jour + ".");
 					for (Neuneu neuneu : participants) {
+						System.out.print("Au tour de " + neuneu.getNom() + " ("
+								+ neuneu.getEnergie() + ") $ ");
 						neuneu.tour();
-						System.out.print("Au tour de " + neuneu.getNom()
-								+ " $ ");
 					}
 					System.out.println();
-					//this.selectionNaturelle();
+					// this.selectionNaturelle();
 				}
 				this.decesEtNaissances();
 				maZone.repaint();
@@ -146,21 +146,11 @@ public class Loft implements ObjetDessinable {
 	}
 
 	public void jeSuisMort(Neuneu neuneuMort) {
-		participants.remove(neuneuMort);
-		int w = neuneuMort.getLaCase().getWPosition();
-		int h = neuneuMort.getLaCase().getHPosition();
-		plateau[w][h].removeOccupant(neuneuMort);
 		morts.add(neuneuMort);
-		maZone.retirerObjet(neuneuMort);
 	}
 
 	public void jeSuisNe(Neuneu jeuneNeuneu) {
-		participants.add(jeuneNeuneu);
-		int w = jeuneNeuneu.getLaCase().getWPosition();
-		int h = jeuneNeuneu.getLaCase().getHPosition();
-		plateau[w][h].addOccupant(jeuneNeuneu);
 		nes.add(jeuneNeuneu);
-		maZone.ajouterObjet(jeuneNeuneu);
 	}
 
 	// Methode qui affiche la liste des Neuneu morts et des Neuneu nes durant la
@@ -171,6 +161,11 @@ public class Loft implements ObjetDessinable {
 				+ " sont:");
 		for (Neuneu neuneuMort : morts) {
 			System.out.print(neuneuMort.getNom() + " ");
+			participants.remove(neuneuMort);
+			int w = neuneuMort.getLaCase().getWPosition();
+			int h = neuneuMort.getLaCase().getHPosition();
+			plateau[w][h].removeOccupant(neuneuMort);
+			maZone.retirerObjet(neuneuMort);
 		}
 		System.out.println();
 		morts.clear();
@@ -178,8 +173,13 @@ public class Loft implements ObjetDessinable {
 		// Gestion des Neuneus nes
 		System.out.println("Le(s) neuneu(s) ne(s) durant le jour " + jour
 				+ " sont:");
-		for (Neuneu neuneuNe : nes) {
-			System.out.print(neuneuNe.getNom() + " ");
+		for (Neuneu jeuneNeuneu : nes) {
+			participants.add(jeuneNeuneu);
+			int w = jeuneNeuneu.getLaCase().getWPosition();
+			int h = jeuneNeuneu.getLaCase().getHPosition();
+			plateau[w][h].addOccupant(jeuneNeuneu);
+			System.out.print(jeuneNeuneu.getNom() + " ");
+			maZone.ajouterObjet(jeuneNeuneu);
 		}
 		System.out.println();
 		nes.clear();
