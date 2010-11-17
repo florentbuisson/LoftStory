@@ -1,27 +1,32 @@
+public class Lapin extends Neuneu {
 
-public class Lapin extends Neuneu{
+	public Lapin(Loft loft, int wPosition, int hPosition, String nom) {
+		super(loft, wPosition, hPosition, nom);
 
-	
-	public Lapin(Loft loft, int wPosition, int hPosition, String nom){
-		super( loft, wPosition, hPosition, nom);
-		
 	}
-	
-	void bougeDeLa(){
-		
+
+	void bougeDeLa() {
+
 	}
-	void mange(){
-		
+
+	void mange() {
+
 	}
-	void tour(){
-		
+
+	void tour() {
+
 	}
-	void fornique(){
-		
+
+	void fornique() {
+
 	}
-	Neuneu accouplement(Neuneu partenaire){
-		Lapin bebeNeuneu = new Lapin(maison, getLaCase().getWPosition(), getLaCase().getHPosition(), new String("Lapin" + this.maison.donnerNumeroPourNomNeuneu()));
-		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance ˆ " + bebeNeuneu.getNom());
+
+	Neuneu accouplement(Neuneu partenaire) {
+		Lapin bebeNeuneu = new Lapin(maison, getLaCase().getWPosition(),
+				getLaCase().getHPosition(), new String("Lapin"
+						+ this.maison.donnerNumeroPourNomNeuneu()));
+		System.out.println(this.getNom() + " et " + partenaire.getNom()
+				+ " donnent naissance ï¿½ " + bebeNeuneu.getNom());
 		return bebeNeuneu;
-}
+	}
 }
