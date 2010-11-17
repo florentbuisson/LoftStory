@@ -166,7 +166,7 @@ public class Loft implements ObjetDessinable {
 			System.out.print(neuneuMort.getNom() + " ");
 		}
 		System.out.println();
-		
+		morts.clear();
 
 		// Gestion des Neuneus nes
 		System.out.println("Le(s) neuneu(s) ne(s) durant le jour " + jour
@@ -175,6 +175,7 @@ public class Loft implements ObjetDessinable {
 			System.out.print(neuneuNe.getNom() + " ");
 		}
 		System.out.println();
+		nes.clear();
 	}
 
 	public void dessinerObjet(Graphics g) {
