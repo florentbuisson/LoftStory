@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 
 /**
  * une classe comportant une zone graphique dans laquelle on peut dessiner ;
- * le dessin est refait automatiquement par la classe Panel associŽe ; tous
- * les objets de type ObjetDessinable ajoutŽs ˆ la liste sont redessinŽs par 
- * un appel ˆ leur mŽthode dessinerObjet(Graphics g)
+ * le dessin est refait automatiquement par la classe Panel associï¿½e ; tous
+ * les objets de type ObjetDessinable ajoutï¿½s ï¿½ la liste sont redessinï¿½s par 
+ * un appel ï¿½ leur mï¿½thode dessinerObjet(Graphics g)
  * 
  * @see ObjectDessinable,LoftPanel
  * @author moreau
@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 public class ZoneGraphique extends JFrame {
 
 	/**
-	 * la liste d'objets ˆ dessiner
+	 * la liste d'objets ï¿½ dessiner
 	 */
 	LinkedList<ObjetDessinable> liste;
 	
@@ -31,10 +31,10 @@ public class ZoneGraphique extends JFrame {
 		// appel au constructeur de base
 		super(titre);
 		
-		// ajout d'une taille par dŽfaut
+		// ajout d'une taille par dï¿½faut
 		setSize(600,600);
 		
-		// crŽation de la liste d'objets
+		// crï¿½ation de la liste d'objets
 		liste = new LinkedList<ObjetDessinable>();
 		
 		// ajout d'un listener
@@ -44,7 +44,7 @@ public class ZoneGraphique extends JFrame {
 			}
 	    	} ) ;
 
-		// crŽation du panneau
+		// crï¿½ation du panneau
 		LoftPanel a = new LoftPanel(liste);
 		getContentPane().add(a);
 		

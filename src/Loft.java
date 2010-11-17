@@ -68,10 +68,10 @@ public class Loft {
 				nonneuneu = new Alcool();
 				break;
 			}
+			aliments.add(nonneuneu);
+			plateau[w][h].addOccupant(nonneuneu);
 		}
-	}
-
-	public void regarderLeLoft() {
+		
 	}
 
 	public void add(Neuneu neuneu) {
