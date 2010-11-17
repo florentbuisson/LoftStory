@@ -65,11 +65,11 @@ public class Cannibale extends Vorace {
 		lePlusBon.setValeurEnergetique(0);
 		for (int i = 0; i < getLaCase().getOccupants().size(); ++i) {
 			Nourriture ceTruc = getLaCase().getOccupants().get(i);
-			if (premierTrouve) {
+			if (premierTrouve && !ceTruc.getNom().equals(getNom())) {
 				lePlusBon = ceTruc;
 				premierTrouve = false;
 			} else if (ceTruc.getValeurEnergetique() > lePlusBon
-					.getValeurEnergetique()) {
+					.getValeurEnergetique() && !ceTruc.getNom().equals(getNom())) {
 				lePlusBon = ceTruc;
 			}
 		}
