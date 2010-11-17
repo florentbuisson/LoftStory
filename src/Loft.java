@@ -16,6 +16,11 @@ public class Loft {
 
 	public Loft(int tailleLoft, ZoneGraphique Zone) {
 		this.taille = tailleLoft;
+		for (int i = 0; i <= taille - 1; i++) {
+			for (int j = 0; j <= taille - 1; j++) {
+				plateau[i][j] = new Case(i,j);
+			}
+		}
 	}
 
 	public Case getCase(int w, int h) {
@@ -71,6 +76,9 @@ public class Loft {
 
 	public void add(Neuneu neuneu) {
 		participants.add(neuneu);
+		int w = neuneu.getLaCase().getWPosition();
+		int h = neuneu.getLaCase().getHPosition();
+		plateau[w][h].addOccupant(neuneu);
 	}
 
 	protected void selectionNaturelle() {
@@ -85,10 +93,13 @@ public class Loft {
 		System.out.println("Pour cette raison, " + plusFaible.getNom()
 				+ " est invite à quitter le Loft.");
 		participants.remove(plusFaible);
+		int w = plusFaible.getLaCase().getWPosition();
+		int h = plusFaible.getLaCase().getHPosition();
+		plateau[w][h].removeOccupant(plusFaible);
 	}
 
 	public String donnerNumeroPourNomNeuneu() {
-		++nombreNeuneuTotal;
+		nombreNeuneuTotal = nombreNeuneuTotal + 1;
 		return nombreNeuneuTotal.toString();
 	}
 
@@ -105,11 +116,17 @@ public class Loft {
 
 	public void jeSuisMort(Neuneu neuneuMort) {
 		participants.remove(neuneuMort);
+		int w = neuneuMort.getLaCase().getWPosition();
+		int h = neuneuMort.getLaCase().getHPosition();
+		plateau[w][h].removeOccupant(neuneuMort);
 		morts.add(neuneuMort);
 	}
-	
+
 	public void jeSuisNe(Neuneu jeuneNeuneu) {
 		participants.add(jeuneNeuneu);
+		int w = jeuneNeuneu.getLaCase().getWPosition();
+		int h = jeuneNeuneu.getLaCase().getHPosition();
+		plateau[w][h].addOccupant(jeuneNeuneu);
 		nes.add(jeuneNeuneu);
 	}
 }

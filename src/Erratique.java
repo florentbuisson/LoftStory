@@ -22,7 +22,7 @@ public class Erratique extends Neuneu{
 	}
 	Neuneu accouplement(Neuneu partenaire){
 		Erratique bebeNeuneu = new Erratique(maison, getLaCase().getWPosition(), getLaCase(). getHPosition(), new String("Erratique" + this.maison.donnerNumeroPourNomNeuneu()));
-		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance ˆ " + bebeNeuneu.getNom());
+		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance Âˆ " + bebeNeuneu.getNom());
 		return bebeNeuneu;
 	}
 }

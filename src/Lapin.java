@@ -50,7 +50,7 @@ public class Lapin extends Neuneu{
 	}
 	Neuneu accouplement(Neuneu partenaire){
 		Lapin bebeNeuneu = new Lapin(maison, getLaCase().getWPosition(), getLaCase().getHPosition(), new String("Lapin" + this.maison.donnerNumeroPourNomNeuneu()));
-		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance ˆ " + bebeNeuneu.getNom());
+		System.out.println(this.getNom() + " et " + partenaire.getNom() + " donnent naissance Âˆ " + bebeNeuneu.getNom());
 		return bebeNeuneu;
 }
 }
