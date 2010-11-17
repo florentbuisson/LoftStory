@@ -2,11 +2,11 @@
 
 public class Saison1 {
 
-	public static int nombreLofteurs = 10;
+	public static int nombreLofteurs = 1;
 	public static int tailleLoft = 30;
-	public static float proportionErratique = .3f;
-	public static float proportionVorace = .6f;
-	public static float proportionCannibale = .1f;
+	public static float proportionErratique = 0f;
+	public static float proportionVorace = 1.0f;
+	public static float proportionCannibale = 0f;
 	public static int dureeSaison = 100; //nombre de tours
 	
 	/**
@@ -19,7 +19,7 @@ public class Saison1 {
 	public void primeTime() {
 		ZoneGraphique zone = new ZoneGraphique("Mon premier loft");
 		Loft loft = new Loft(tailleLoft,zone);
-		loft.remplissageAleatoire(0.1f);
+		loft.remplissageAleatoire(0.01f);
 		zone.ajouterObjet(loft);
 		
 		for (int i=0 ; i<nombreLofteurs ; i++) {

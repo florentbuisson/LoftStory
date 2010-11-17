@@ -132,7 +132,7 @@ public class Loft implements ObjetDessinable {
 								+ neuneu.getEnergie() + ") $ ");
 						neuneu.tour();
 						maZone.repaint();
-						Thread.sleep(1000);
+						Thread.sleep(500);
 					} catch (InterruptedException ie) {
 						// If this thread was intrrupted by nother thread
 					}
