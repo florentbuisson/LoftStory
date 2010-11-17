@@ -65,16 +65,16 @@ public class Loft implements ObjetDessinable {
 			int a = (int) (Math.random() * 3);
 			switch (a) {
 			case 0:
-				nonneuneu = new Carotte(plateau[w][h]);
+				nonneuneu = new Carotte(this, plateau[w][h]);
 				break;
 			case 1:
-				nonneuneu = new Viande(plateau[w][h]);
+				nonneuneu = new Viande(this, plateau[w][h]);
 				break;
 			case 2:
-				nonneuneu = new Alcool(plateau[w][h]);
+				nonneuneu = new Alcool(this, plateau[w][h]);
 				break;
 			default:
-				nonneuneu = new Alcool(plateau[w][h]);
+				nonneuneu = new Alcool(this, plateau[w][h]);
 				break;
 			}
 			aliments.add(nonneuneu);
@@ -144,12 +144,30 @@ public class Loft implements ObjetDessinable {
 		}
 	}
 
+	public Case jeMeDeplace(Neuneu neuneuQuiBouge, int x, int y) {
+		Case caseNeuneu = neuneuQuiBouge.getLaCase();
+		int w = caseNeuneu.getWPosition();
+		int h = caseNeuneu.getHPosition();
+		Case nouvelleCase = getCase(w + x, h + y);
+		plateau[w][h].removeOccupant(neuneuQuiBouge);
+		plateau[w + x][h + y].addOccupant(neuneuQuiBouge);
+
+		return nouvelleCase;
+	}
+
 	public void jeSuisMort(Neuneu neuneuMort) {
 		morts.add(neuneuMort);
 	}
 
 	public void jeSuisNe(Neuneu jeuneNeuneu) {
 		nes.add(jeuneNeuneu);
+	}
+
+	public void jeSuisConsomme(Nonneuneu aliment) {
+		aliments.remove(aliment);
+		plateau[aliment.getLaCase().getWPosition()][aliment.getLaCase()
+				.getHPosition()].removeOccupant(aliment);
+		maZone.retirerObjet(aliment);
 	}
 
 	// Methode qui affiche la liste des Neuneu morts et des Neuneu nes durant la
