@@ -122,26 +122,25 @@ public class Loft implements ObjetDessinable {
 
 	public void go(int nbJour) {
 		for (int i = 0; i <= nbJour - 1; i++) {
-			try {
-				if (participants.size() >= 1) {
-					jour = jour + 1;
-					System.out.println("Debut du jour numero" + jour + ".");
-					for (Neuneu neuneu : participants) {
+
+			if (participants.size() >= 1) {
+				jour = jour + 1;
+				System.out.println("Debut du jour numero" + jour + ".");
+				for (Neuneu neuneu : participants) {
+					try {
 						System.out.print("Au tour de " + neuneu.getNom() + " ("
 								+ neuneu.getEnergie() + ") $ ");
 						neuneu.tour();
+						maZone.repaint();
+						Thread.sleep(1000);
+					} catch (InterruptedException ie) {
+						// If this thread was intrrupted by nother thread
 					}
-					System.out.println();
-					// this.selectionNaturelle();
 				}
-				this.decesEtNaissances();
-				maZone.repaint();
-				// do what you want to do before sleeping
-				Thread.sleep(1000);// sleep for 1000 ms
-				// do what you want to do after sleeptig
-			} catch (InterruptedException ie) {
-				// If this thread was intrrupted by nother thread
+				System.out.println();
+				// this.selectionNaturelle();
 			}
+			this.decesEtNaissances();
 		}
 	}
 
