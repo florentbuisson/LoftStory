@@ -69,6 +69,9 @@ public abstract class Neuneu extends Nourriture {
 		return energie;
 	}
 
+	public int getMembres(){
+		return membres;
+	}
 	public void setEnergie(int nouvelleEnergie) {
 		this.energie = nouvelleEnergie;
 		this.setValeurEnergetique(energie);
